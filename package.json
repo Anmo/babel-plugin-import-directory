@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-import-directory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "`import` directories without index.js",
   "main": "lib/index.js",
   "scripts": {
