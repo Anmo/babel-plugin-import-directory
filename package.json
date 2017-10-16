@@ -1,0 +1,24 @@
+{
+  "name": "babel-plugin-import-directory",
+  "version": "1.0.0",
+  "description": "`import` directories without index.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "ava",
+    "test:watch": "yarn test -- --watch",
+    "build": "babel -d ./lib ./src",
+    "prepublish": "babel -d ./lib ./src --minified"
+  },
+  "dependencies": {
+    "babel-template": "^6.26.0"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0"
+  },
+  "repository": "git@github.com:Anmo/babel-plugin-import-directory.git",
+  "author": "Anmo <btavares26@gmail.com>",
+  "license": "MIT"
+}
