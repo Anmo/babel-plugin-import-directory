@@ -1,5 +1,5 @@
 # babel-plugin-import-directory
-Are you seek and tired to write a `index.js` file, just to import/export all the other files in a directory?
+Are you sick and tired of writing an `index.js` file, just to import/export all the other files in a directory?
 
 Don't seek more :)
 
@@ -57,7 +57,7 @@ const actions = _dirImport;
 
 ---
 
-You can also import files recursive using double `asterisk` like this:
+You can also import files recursively using double `asterisk` like this:
 ```javascript
 import actions from './actions/**';
 ```
@@ -130,7 +130,7 @@ const actions = _dirImport;
 
 ## Usage
 
-Just add it to you **.babelrc** file
+Just add it to your **.babelrc** file
 
 ```json
 {
