@@ -1,4 +1,4 @@
-import template from 'babel-template'
+import template from '@babel/template'
 import _path from 'path'
 import _fs from 'fs'
 
@@ -51,7 +51,7 @@ export default function dir (babel) {
         const isRecursive = recursiveRegex.test(cleanedPath)
         cleanedPath = cleanedPath.replace(recursiveRegex, '')
 
-        const sourcePath = this.file.parserOpts.sourceFileName || this.file.parserOpts.filename
+        const sourcePath = this.file.opts.parserOpts.sourceFileName || this.file.opts.parserOpts.filename || ''
         const checkPath = _path.resolve(_path.join(_path.dirname(sourcePath), cleanedPath))
 
         try {
