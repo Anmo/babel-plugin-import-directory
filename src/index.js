@@ -44,6 +44,7 @@ export default function dir (babel) {
         let src = node.source.value
 
         if (src[0] !== '.' && src[0] !== '/') { return }
+        const pathPrefix = src.split('/')[0] + '/';
 
         const isExplicitWildcard = wildcardRegex.test(src)
         let cleanedPath = src.replace(wildcardRegex, '')
@@ -76,7 +77,7 @@ export default function dir (babel) {
         const imports = files.map(([file, fileName, fileUid]) =>
           t.importDeclaration(
             [t.importNamespaceSpecifier(fileUid)],
-            t.stringLiteral(_path.join(cleanedPath, ...file))
+            t.stringLiteral(pathPrefix + _path.join(cleanedPath, ...file))
           )
         )
 
