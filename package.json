@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-import-directory",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Are you sick and tired of writing an `index.js` file, just to import/export all the other files in a directory?\n\nDon't seek more :)\n\nJust use `babel-plugin-import-directory` for that!",
   "main": "lib/index.js",
   "scripts": {
