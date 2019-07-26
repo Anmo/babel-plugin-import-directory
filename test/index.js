@@ -86,6 +86,20 @@ _dirImport.fakeModuleD = _fakeModuleD
 const x = _dirImport;`)
 })
 
+test('importing a existing directory without index file along with extension', (t) => {
+  const orig = `import x from './test/fixtures/**';`
+
+  t.is(transform(orig,{addExtWithFilename: true}), `const _dirImport = {};
+import * as _fakeModuleDJs from "./test/fixtures/c/fakeModuleD.js";
+import * as _fakeModuleBJs from "./test/fixtures/fake-module-b.js";
+import * as _fakeModuleAJs from "./test/fixtures/fake.module.a.js";
+_dirImport.fakeModuleAJs = _fakeModuleAJs
+_dirImport.fakeModuleBJs = _fakeModuleBJs
+_dirImport.fakeModuleDJs = _fakeModuleDJs
+const x = _dirImport;`)
+})
+
+
 test('importing a existing directory without index file', (t) => {
   const orig = `import x from './test/fixtures/**/*';`
 
