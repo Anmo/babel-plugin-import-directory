@@ -14,7 +14,7 @@ const toCamelCase = (name) =>
 const toSnakeCase = (name) =>
   name.replace(/([-.A-Z])/g, (_, $1) => '_' + ($1 === '.' || $1 === '-' ? '' : $1.toLowerCase()))
 
-const getFiles = (parent, exts = ['.js', '.es6', '.es', '.jsx'], files = [], recursive = false, path = []) => {
+const getFiles = (parent, exts = ['.js', '.es6', '.es', '.jsx'], files = [], recursive = false, path = [], addExtWithFilename = false) => {
   let r = _fs.readdirSync(parent)
 
   for (let i = 0, l = r.length; i < l; i++) {
@@ -23,11 +23,14 @@ const getFiles = (parent, exts = ['.js', '.es6', '.es', '.jsx'], files = [], rec
     const {name, ext} = _path.parse(child)
     const file = path.concat(name)
 
-    // Check extension is of one of the aboves
+    // Check extension is of one of the above
     if (exts.includes(ext)) {
+      if (addExtWithFilename) {
+        file[file.length - 1] = file[file.length - 1] + ext
+      }
       files.push(file)
     } else if (recursive && _fs.statSync(_path.join(parent, child)).isDirectory()) {
-      getFiles(_path.join(parent, name), exts, files, recursive, file)
+      getFiles(_path.join(parent, name), exts, files, recursive, file, addExtWithFilename)
     }
   }
 
@@ -67,7 +70,7 @@ export default function dir (babel) {
 
         const nameTransform = state.opts.snakeCase ? toSnakeCase : toCamelCase
 
-        const _files = getFiles(checkPath, state.opts.exts, [], isRecursive)
+        const _files = getFiles(checkPath, state.opts.exts, [], isRecursive, [],state.opts.addExtWithFilename);
         const files = _files.map((file) =>
           [file, nameTransform(file[file.length - 1]), path.scope.generateUidIdentifier(file[file.length - 1])]
         )
