@@ -1,5 +1,8 @@
 # babel-plugin-import-directory
 
+What's new on this fork ?
+=> Include typescript files (.ts) automatically
+
 ![npm](https://img.shields.io/npm/v/babel-plugin-import-directory.svg) ![license](https://img.shields.io/npm/l/babel-plugin-import-directory.svg) ![github-issues](https://img.shields.io/github/issues/Anmo/babel-plugin-import-directory.svg)
 
 Are you sick and tired of writing an `index.js` file, just to import/export all the other files in a directory?
