@@ -14,7 +14,7 @@ const toCamelCase = (name) =>
 const toSnakeCase = (name) =>
   name.replace(/([-.A-Z])/g, (_, $1) => '_' + ($1 === '.' || $1 === '-' ? '' : $1.toLowerCase()))
 
-const getFiles = (parent, exts = ['.js', '.es6', '.es', '.jsx'], files = [], recursive = false, path = []) => {
+const getFiles = (parent, exts = ['.js', '.es6', '.es', '.jsx', '.ts'], files = [], recursive = false, path = []) => {
   let r = _fs.readdirSync(parent)
 
   for (let i = 0, l = r.length; i < l; i++) {
